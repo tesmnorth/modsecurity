@@ -68,7 +68,7 @@ Böylelikle HTTPS trafiği ile ModSecurity atlayamazsınız.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7-) Dosya kontrolü: Sunucunuza yüklenmiş olan dosyaları kontrol
 edebilir.
 
-![](https://drive.google.com/open?id=0By5Yp2x05-OXYjY2MlJ5V01Zc2s)
+![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image1.png)
 
 ##3.  ModSecurity Kurulumu ve Konfigurasyonu
 
