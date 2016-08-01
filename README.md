@@ -321,11 +321,11 @@ test edebilirsiniz.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bu işlemleri gerçekleştirdikten sonra sunucunuz içerisinden http://localhost/dvwa ile uygulamaya ulaşabilirsiniz.
 
-![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image2.png)
+![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image2.JPG)
 
 Daha sonra soldaki menüden SQL injection butonuna tıklayın.
 
-![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image3.png)
+![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image3.JPG)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User ID input alanına size database versiyonunu verecek aşağıdaki şu sql
 komutunu yazın ve submit butonuna tıklayın.
@@ -334,12 +334,12 @@ komutunu yazın ve submit butonuna tıklayın.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aynı zamanda /var/log/apache2/modsec_audit.log dosyasında logu takip edin.
 
-![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image4.png)
+![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image4.JPG)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Görüldüğü üzere web sunucusu geriye bir cevap döndürmedi. Log dosyası
 üzerinde de bu saldırıyı yakaladığı tespit edilebilmektedir.
 
-![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image5.png)
+![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image5.JPG)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bu Dvwa uygulamasını kullanarak diğer tipteki saldırlarda hızlı bir
 şekilde gerçekleştirilebilir.
