@@ -104,8 +104,8 @@ Kurulum Aşamaları :
     klasörlere kopyalayın.
 
     sudo mkdir /etc/modsecurity
-    sudo cp /tmp/modsecstaging/modsecurity-2.9.0/modsecurity.conf-recommended \ /etc/modsecurity/modsecurity.conf
-    sudo cp /tmp/modsecstaging/modsecurity-2.9.0/unicode.mapping /etc/modsecurity
+    sudo cp /tmp/modsec/modsecurity-2.9.1/modsecurity.conf-recommended  /etc/modsecurity/modsecurity.conf
+    sudo cp /tmp/modsec/modsecurity-2.9.1/unicode.mapping /etc/modsecurity
     sudo mkdir /var/cache/modsecurity
     sudo chown www-data /var/cache/modsecurity
 
