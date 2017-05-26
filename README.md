@@ -1,6 +1,7 @@
-#ModSecurity
+Important Info : This document is for contributing to increase of Turkish security resources. Please, click for more Turkish security resources : https://github.com/tobbetubilgiguvenligi
+# ModSecurity
 
-##1.  Giriş
+## 1.  Giriş
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Günümüzde internete bağlı kurum veya kuruluşların birçoğu güvenlik
 duvarı kullanmaktadır. Kurumlar, güvenlik duvarlarını kurumun iç ağ
@@ -12,7 +13,7 @@ verirler. Standart güvenlik duvarları OSI katmanının yedinci seviyesinde
 güvenlik duvarları yedinci katmana kadar çıkarak belirli protokoller
 için inceleme imkanı sunar.
 
-##1.1  Web Uygulama Güvenlik Duvarı Nedir?
+## 1.1  Web Uygulama Güvenlik Duvarı Nedir?
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Günümüzde klasik güvenlik duvarları ağa bağlı olan sistemlerin güvenliği
 konusunda artık yeterli olmamaktadır. Bunun sebebi ise geneksel tüm
@@ -34,7 +35,7 @@ güvenlik duvarları, saldırı engelleme sistemleri gibi yazılımlar
 tarafından tespit edilmesi mümkün olmayan saldırıların engellenmesine
 imkân sağlanmaktadır.
 
-##2.  ModSecurity Nedir?
+## 2.  ModSecurity Nedir?
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModeSecurity, Trustwave şirketi tarafından geliştirilen açık kaynak
 kodlu Apache ile birlikte çalışan (modül olarak) bütünleşik bir web
@@ -70,7 +71,7 @@ edebilir.
 
 ![alt text](https://github.com/tesmnorth/modsecurity/blob/master/image1.png)
 
-##3.  ModSecurity Kurulumu ve Konfigurasyonu
+## 3.  ModSecurity Kurulumu ve Konfigurasyonu
 
 Gereksinimler :
 
@@ -164,7 +165,7 @@ ModSecurity’e ekleyebilmek için aşağıdaki adımlar kullanılmalıdır.
     service apache2 restart
     apachectl -M | grep security2 # çalışan modül göster.
 
-##4.  ModSecurity Yapılandırma
+## 4.  ModSecurity Yapılandırma
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity yapılandırma direktifleri yapılandırma dosyanıza
 (modsecurity.conf) direk olarak eklenir. Apache, yapılandırma
@@ -175,7 +176,7 @@ web uygulaması için ayrı yapılandırmalar yapmanıza olanak sağlar.
 Aşağıda, ModSecurity ana yapılandırılmasında temel bazda yer alması
 gereken komutları bulabilirsiniz.
 
-##4.1  Filtrelemeyi Açma – Kapama
+## 4.1  Filtrelemeyi Açma – Kapama
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity’de varsayılan olarak filtreleme motoru kapalıdır. İstekleri
 gizlemek için aşağıdaki komutu modesecurity.conf dosyası içine ekleyin.
@@ -186,7 +187,7 @@ gizlemek için aşağıdaki komutu modesecurity.conf dosyası içine ekleyin.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Off : Hiç birşey yapma.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DynamicOnly : Dinamik olarak üretilen istekleri analiz et.
 
-##4.2  POST Tarama
+## 4.2  POST Tarama
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTTP İstek paketinin POST verisini analiz eder. Kullanmak için aşağıdaki
 modsecurity.conf dosyasına komutu ekleyin.
@@ -198,7 +199,7 @@ ModSecurity POST verisinde iki kodlama tipini destekler.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-   Application/x-www-form-urlencoded : Form verisini iletmek için kullanılır.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-   Multipart/form-data : Dosya iletmek için kullanılır.
 
-##4.3  Dinamik Olarak Buffering Durdurma
+## 4.3  Dinamik Olarak Buffering Durdurma
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;İstek bazında POST verisi tarama özelliğini kapatabilirsiniz. Karşıdan
 dosya yüklemeleri için POST verilerinin taranmasını kapatmak
@@ -208,7 +209,7 @@ istiyorsanız aşağıdaki komutu modsecurity.conf dosyanıza ekleyin.
     "^multipart/form-data;" "MODSEC_NOPOSTBUFFERING=Do not buffer file uploads"
 
 
-##4.4  Varsayılan İşlem Listesi
+## 4.4  Varsayılan İşlem Listesi
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bir istek tanımlanan bir kural ile eşleşmesi durumunda, bir veya daha
 fazla işlem uygulanır. Bireysel filtreler kendi işlemlerini içerebilir
@@ -219,7 +220,7 @@ kodu ile reddecektir.
 
     SecFilterDefaultAction "deny,log,status:404"
 
-##4.5  Filtre Kalıtımı
+## 4.5  Filtre Kalıtımı
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Üst dizinlerde tanımlanan filtreler normal olarak içiçe yazılan Apache
 yapılandırma kapsamı tarafından kalıtılırlar. Fakat bu filtremeleri
@@ -228,7 +229,7 @@ aşağıdaki komut kullanılır.
 
     SecFilterInheritance Off
 
-##4.6  URL Kodlama Denetimi
+## 4.6  URL Kodlama Denetimi
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Özel karakterler URL içerisinde gönderilmeden önce encode edilmelidir.
 ModSecurity bu encode edilmiş özel karakterlerin doğru olduklarını
@@ -237,7 +238,7 @@ açılabilir.
 
     SecFilterCheckURLEncoding On
 
-##4.7  Evrensel Kodlama Denetimi
+## 4.7  Evrensel Kodlama Denetimi
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Eğer uygulamanız veya üzerinde çalıştığı işletim sistemi evrensel kodu
 kabul ediyor veya anlıyorsa bu özellik açılmalıdr.
@@ -247,7 +248,7 @@ kabul ediyor veya anlıyorsa bu özellik açılmalıdr.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bu komut şu durumları kontrol eder : Yetersiz bayt, geçersiz kodlama,
 çok uzun karakterler.
 
-##4.8  Bayt Aralığı Kontrolü
+## 4.8  Bayt Aralığı Kontrolü
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTTP istekleri içerisindeki baytların sadece belirli bir aralıkta
 olmalarını sağlayabilirsiniz. Stackoverflow saldırılarını önlemekte
@@ -255,7 +256,7 @@ kullanılabilir.
 
     SecFilterForceByteRange 32 126
 
-##4.9  Kurallar
+## 4.9  Kurallar
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Filtreleme motoru çalışır hale getirildiğinde, her gelen istek yakalanır
 ve işlemden geçirilmeden önce analiz edilir. Analiz istek formatını
@@ -264,7 +265,7 @@ yapılandırma direktifleri kullanılarak kontrol edilebilir. İkinci
 aşamada, isteki kullanıcı tarafından tanımlanan ve eşlenen filtreden
 geçer. Bu işlem sonucu başarılı olursa, belli işlemler uygulanır.
 
-##4.10  Yol (Path) Normalizasyonu
+## 4.10  Yol (Path) Normalizasyonu
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity’de istek verileri için filtreler oluşturabilirsiniz.
 Filtreler işlenememiş istek verilerine uygulanmaz. Bunu saldırganların
@@ -274,21 +275,21 @@ açacak bir dizgi kullanabilir.
 
     SecFilter /bin/sh
 
-##4.11  Null Bayt Saldırısını Önleme
+## 4.11  Null Bayt Saldırısını Önleme
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Null byte saldırıları C/C++ tabanlı yazılımlarınızın dizginin bittiğine
 inandırmaya çalışır. Bu tip saldırılar aşağıdaki komutla engellenebilir.
 
     SecFilter hidden
 
-##4.12  Cookieler
+## 4.12  Cookieler
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity cookiler için tam destek sunar. Sürüm 1 cookie desteği almak
 için aşağıdaki komutu girin.
 
     SecFilterCookieFormat 1
 
-##5.  ModSecurity Kural Yapısı
+## 5.  ModSecurity Kural Yapısı
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity’de kendinizde belirli saldırıları tanımlayabilirsiniz.
 Tanımlayacağınız bu kuralları SecRule komutu ile “modsecurity.conf”
@@ -303,7 +304,7 @@ saldırılarını önlemektedir. Görüldüğü üzere ModSecurity imzaları yaz
 çok kolay bir iş değildir. Bu neden OWASP’ın CRS Projesi takip
 edilebilir. (Link : https://github.com/SpiderLabs/owasp-modsecurity-crs)
 
-##6.  Örnek SQL Injection Saldırısı
+## 6.  Örnek SQL Injection Saldırısı
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ModSecurity Web Uygulama Güvenlik Duvarı’nı sunucunuz üzerinde çalışan
 Apache Web Sunucusu’na ekledikten sonra doğru çalıştığını aşağıdaki gibi
